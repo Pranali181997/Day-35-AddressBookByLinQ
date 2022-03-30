@@ -40,12 +40,12 @@ namespace Day_35AddressBook
 
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.Double");
-            column.ColumnName = "PhoneNumber";
+            column.ColumnName = "Zip";
             BookTable.Columns.Add(column);
 
             column = new DataColumn();
-            column.DataType = System.Type.GetType("System.Int32");
-            column.ColumnName = "Zip";
+            column.DataType = System.Type.GetType("System.Double");
+            column.ColumnName = "PhoneNumber";
             BookTable.Columns.Add(column);
 
             column = new DataColumn();
@@ -58,6 +58,32 @@ namespace Day_35AddressBook
             PrimaryKeyColumns[0] = BookTable.Columns["FirstName"];
             PrimaryKeyColumns[1] = BookTable.Columns["PhoneNumber"];
             BookTable.PrimaryKey = PrimaryKeyColumns;
+
+            //Creating rows and adding data into rows - UC3
+            BookTable.Rows.Add("Kim", "Kardashian", "Street 1", "Lakers", "Los Angeles", 444556, 6785674567, "lb@gmail.com");
+            BookTable.Rows.Add("Kylie", "Jenner", "Street 3", "Celtics", "Boston", 345267, 2345678987, "kylie@gmail.com");
+            BookTable.Rows.Add("Kris", "Jenner", "Block 4", "Warriors", "Golden State", 987654, 3456787654, "kris@gmail.com");
+            BookTable.Rows.Add("Khloe", "Lamar", "Street 5", "Rockets", "Houston", 234566, 6543456789, "khloe@gmail.com");
+            BookTable.Rows.Add("Kourtney", "Scott", "Block 2", "Hornets ", "Charlotte ", 444556, 3456787654, "ks@gmail.com");
+           
+            //UC4
+            //reference for address book management class
+            AddressBookManagement addressBookManagement = new AddressBookManagement();
+            BookTable = addressBookManagement.UpdatedContactDetails(BookTable);
+
+            Console.WriteLine("\n*******************DATA*****************\n");
+            foreach (var data in BookTable.AsEnumerable())
+            {
+                Console.WriteLine("FirstName:- " + data.Field<string>("firstName"));
+                Console.WriteLine("lastName:- " + data.Field<string>("lastName"));
+                Console.WriteLine("Address:- " + data.Field<string>("address"));
+                Console.WriteLine("City:- " + data.Field<string>("city"));
+                Console.WriteLine("State:- " + data.Field<string>("state"));
+                Console.WriteLine("zip:- " + Convert.ToInt32(data.Field<Double>("zip")));
+                Console.WriteLine("phoneNumber:- " + Convert.ToDouble(data.Field<Double>("phoneNumber")));
+                Console.WriteLine("eMail:- " + data.Field<string>("eMail"));
+                Console.WriteLine("\n***************\n");
+            }
         }
-    }
+    }   
 }
