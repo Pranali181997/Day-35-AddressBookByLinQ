@@ -11,24 +11,53 @@ namespace Day_35AddressBook
         public static DataTable BookTable = new DataTable();
         public static void AddTable()
         {
+            DataColumn column;
+            DataRow Row;
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.String");
+            column.ColumnName = "FirstName";
+            BookTable.Columns.Add(column);
 
-            //UC-2-Insert The columns
-            BookTable.Columns.Add("FirstName", typeof(string));
-            BookTable.Columns.Add("LastName", typeof(string));
-            BookTable.Columns.Add("Address", typeof(string));
-            BookTable.Columns.Add("City", typeof(string));
-            BookTable.Columns.Add("State", typeof(string));
-            BookTable.Columns.Add("Zip", typeof(string));
-            BookTable.Columns.Add("PhoneNumber", typeof(string));
-            BookTable.Columns.Add(" Email", typeof(string));
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.String");
+            column.ColumnName = "LastName";
+            BookTable.Columns.Add(column);
 
-            Console.WriteLine("\nDataTable contents:");
-            foreach (var v in BookTable.AsEnumerable())
-            {
-                Console.WriteLine($"ProductID:{v.Field<string>("FirstName")}\tUserID:{v.Field<string>("LastName")}\tRating:{v.Field<string>("Address")}\tReview:{v.Field<string>("City")}\tIsLike:{v.Field<string>("State")}");
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.String");
+            column.ColumnName = "Address";
+            BookTable.Columns.Add(column);
 
-            }
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.String");
+            column.ColumnName = "City";
+            BookTable.Columns.Add(column);
 
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.String");
+            column.ColumnName = "State";
+            BookTable.Columns.Add(column);
+
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.Double");
+            column.ColumnName = "PhoneNumber";
+            BookTable.Columns.Add(column);
+
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.Int32");
+            column.ColumnName = "Zip";
+            BookTable.Columns.Add(column);
+
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.String");
+            column.ColumnName = "Email";
+            BookTable.Columns.Add(column);
+
+            // Make the first name and mobile no column the primary key column
+            DataColumn[] PrimaryKeyColumns = new DataColumn[2];
+            PrimaryKeyColumns[0] = BookTable.Columns["FirstName"];
+            PrimaryKeyColumns[1] = BookTable.Columns["PhoneNumber"];
+            BookTable.PrimaryKey = PrimaryKeyColumns;
         }
     }
 }
