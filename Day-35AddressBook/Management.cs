@@ -50,7 +50,7 @@ namespace Day_35AddressBook
 
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.String");
-            column.ColumnName = "Email";
+            column.ColumnName = "eMail";
             BookTable.Columns.Add(column);
 
             // Make the first name and mobile no column the primary key column
@@ -67,9 +67,9 @@ namespace Day_35AddressBook
             BookTable.Rows.Add("Kourtney", "Scott", "Block 2", "Hornets ", "Charlotte ", 444556, 3456787654, "ks@gmail.com");
            
             //UC4
-            //reference for address book management class
-            AddressBookManagement addressBookManagement = new AddressBookManagement();
-            BookTable = addressBookManagement.UpdatedContactDetails(BookTable);
+         
+            //AddressBookManagement addressBookManagement = new AddressBookManagement();
+            //BookTable = addressBookManagement.UpdatedContactDetails(BookTable);
 
             Console.WriteLine("\n*******************DATA*****************\n");
             foreach (var data in BookTable.AsEnumerable())
@@ -84,6 +84,10 @@ namespace Day_35AddressBook
                 Console.WriteLine("eMail:- " + data.Field<string>("eMail"));
                 Console.WriteLine("\n***************\n");
             }
+            // UC5
+           
+            AddressBookManagement addressBookManagement1 = new AddressBookManagement();           
+            BookTable = addressBookManagement1.DeletingContactFromTable(BookTable);
         }
     }   
 }
