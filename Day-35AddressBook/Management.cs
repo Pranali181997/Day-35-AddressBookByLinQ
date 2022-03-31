@@ -93,6 +93,8 @@ namespace Day_35AddressBook
             addressBookManagement.RetrievingContactDetailsByStateOrCity(BookTable);
             //UC-7
             addressBookManagement.GetCountByCityAndState(BookTable);
+            //UC8
+            addressBookManagement.GetSortedDataBasedOnPersonName(BookTable);
         }
     }   
 }
