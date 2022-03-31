@@ -103,7 +103,7 @@ namespace Day_35AddressBook
                 Console.WriteLine("Address:- " + data.Field<string>("address"));
                 Console.WriteLine("City:- " + data.Field<string>("city"));
                 Console.WriteLine("State:- " + data.Field<string>("state"));
-                Console.WriteLine("zip:- " + Convert.ToInt32(data.Field<int>("zip")));
+                Console.WriteLine("zip:- " + Convert.ToInt32(data.Field<double>("zip")));
                 Console.WriteLine("phoneNumber:- " + Convert.ToDouble(data.Field<Double>("phoneNumber")));
                 Console.WriteLine("eMail:- " + data.Field<string>("eMail"));
                 Console.WriteLine("***************");
