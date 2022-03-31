@@ -91,6 +91,8 @@ namespace Day_35AddressBook
             //UC - 6
             AddressBookManagement addressBookManagement2 = new AddressBookManagement();
             addressBookManagement.RetrievingContactDetailsByStateOrCity(BookTable);
+            //UC-7
+            addressBookManagement.GetCountByCityAndState(BookTable);
         }
     }   
 }
